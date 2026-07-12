@@ -1,26 +1,162 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-inter: var(--font-geist);
+  --font-playfair: var(--font-geist);
+  --color-primary: #012d1d;
+  --color-primary-container: #1b4332;
+  --color-secondary: #57615c;
+  --color-secondary-container: #d8e2dc;
+  --color-tertiary: #ea9147;
+  --color-tertiary-container: #5f2f00;
+  --color-background: #f3f4f3;
+  --color-surface: #f9f9f8;
+  --color-on-primary: #ffffff;
+  --color-on-background: #191c1c;
+  --color-on-surface: #191c1c;
+  --color-on-surface-variant: #414844;
+  --color-outline: #717973;
+  --color-outline-variant: #c1c8c2;
+  --color-accent-terracotta: #ea9147;
+  --color-sage-bg: #f3f4f3;
+  --color-deep-forest: #012d1d;
+
+  --radius-default: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  --spacing-gutter: 24px;
+  --spacing-stack-sm: 8px;
+  --spacing-margin-mobile: 16px;
+  --spacing-container-max: 1280px;
+  --spacing-section-gap: 80px;
+  --spacing-stack-md: 16px;
+  --spacing-stack-lg: 32px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@utility font-body-md {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility text-body-md {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+@utility font-label-lg {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+@utility text-label-lg {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+@utility font-headline-lg-mobile {
+  font-family: var(--font-playfair), serif;
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
+}
+@utility text-headline-lg-mobile {
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
+}
+@utility font-display-lg {
+  font-family: var(--font-playfair), serif;
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+@utility text-display-lg {
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+@utility font-label-sm {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+@utility text-label-sm {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+@utility font-headline-md {
+  font-family: var(--font-playfair), serif;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+@utility text-headline-md {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+@utility font-headline-lg {
+  font-family: var(--font-playfair), serif;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+}
+@utility text-headline-lg {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+}
+@utility font-body-lg {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+@utility text-body-lg {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-sage-bg);
+  color: var(--color-on-background);
+  font-family: var(--font-geist), Arial, Helvetica, sans-serif;
+}
+
+
+
+.nav-link-underline {
+  position: relative;
+}
+
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-accent-terracotta);
+  transition: width 0.3s ease;
+}
+
+.nav-link-underline:hover::after {
+  width: 100%;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(1, 45, 29, 0.1);
 }
